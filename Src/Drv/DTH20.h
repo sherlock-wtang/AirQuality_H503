@@ -14,7 +14,7 @@
 /*-------------------------------GLOBAL VARIABLES---------------------*/
 
 /*-------------------------------GLOBAl PROTOTYPE---------------------*/
-extern void DTH20_FetchData_Routine(BYTE *pbyData);
+extern void DHT_FetchData_Routine(BYTE *pbyData);
 extern void DHT_Startup(void);
 
 

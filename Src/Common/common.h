@@ -20,6 +20,9 @@
 #define SDWORD int32_t
 #define SQWORD int64_t
 
+#define FLOAT float
+#define DOUBLE double
+
 #define BOOL  uint8_t
 #define TRUE    (1)
 #define FALSE   (0)

@@ -15,7 +15,7 @@
 
 /*-------------------------------LOCAL VARIABLES----------------------*/
 
-static WORD s_dwTemperatureData[MAX_PAST_DATA][2];
+static FLOAT s_fTemperatureData[MAX_PAST_DATA][2];
 static BYTE s_byRawData_DHT20[6] = {0};
 static BYTE s_byCurrentDataSeq = 0;
 
@@ -37,10 +37,10 @@ void Temperature_RoutineService(void)
     DHT_FetchData_Routine(s_byRawData_DHT20);
 
     /*Humidity*/
-    s_dwTemperatureData[s_byCurrentDataSeq][0] = (((s_byRawData_DHT20[1] << 12) | (s_byRawData_DHT20[2] << 4) | (s_byRawData_DHT20[3] >> 4)) * 100) / 1048576;
-    
+    s_fTemperatureData[s_byCurrentDataSeq][0] = ((float)((s_byRawData_DHT20[1] << 12) | (s_byRawData_DHT20[2] << 4) | (s_byRawData_DHT20[3] >> 4)) * 100) / 1048576;
+
     /*Temperature*/
-    s_dwTemperatureData[s_byCurrentDataSeq][1] = (((((s_byRawData_DHT20[3] & 0b00001111) << 16) | (s_byRawData_DHT20[4] << 8) | (s_byRawData_DHT20[5])) * 200) / 1048576)- 50;
+    s_fTemperatureData[s_byCurrentDataSeq][1] = (((float)(((s_byRawData_DHT20[3] & 0b00001111) << 16) | (s_byRawData_DHT20[4] << 8) | (s_byRawData_DHT20[5])) * 200) / 1048576) - 50;
 
     s_byCurrentDataSeq++;
     if (s_byCurrentDataSeq == MAX_PAST_DATA)
