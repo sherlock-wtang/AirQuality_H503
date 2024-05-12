@@ -22,6 +22,8 @@ void AppMain(void)
 {
     while (1)
     {
+        PTQS_FetchData_Routine();
+        HAL_Delay(100);
     }
 }
 
