@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "common.h": "c"
+        ".fantomasignore": "ignore",
+        "common.h": "c",
+        "__drivermain.h": "c",
+        "appmain.h": "c"
     }
 }

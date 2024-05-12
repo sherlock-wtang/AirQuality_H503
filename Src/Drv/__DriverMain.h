@@ -1,9 +1,16 @@
 /*
-*@filename: AppMain.h
+*@filename: __DriverMain.h
+*@description: 
 *@note:
 *
 */
+
+#ifndef __DRIVERMAIN_H__
+#define __DRIVERMAIN_H__
+
 /*-------------------------------INCLUDE FILES------------------------*/
+#include "PTQS1005.h"
+#include "WT001.h"
 
 /*-------------------------------DEFINITION---------------------------*/
 
@@ -11,11 +18,6 @@
 
 /*-------------------------------GLOBAl PROTOTYPE---------------------*/
 
+#endif /*__DRIVERMAIN_H__*/
 
-#ifndef __APPMAIN_H__
-#define __APPMAIN_H__
-
-extern void AppMain(void);
-
-#endif /*__APPMAIN_H__*/
 /*-------------------------------EOF---------------------------------*/

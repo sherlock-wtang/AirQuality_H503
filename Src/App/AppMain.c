@@ -3,7 +3,7 @@
  *@description:
  *@note:
  *
-*/
+ */
 
 /*-------------------------------INCLUDE FILES------------------------*/
 #include "__DriverMain.h"
@@ -18,12 +18,13 @@
 
 /*-------------------------------LOCAL PROTOTYPE---------------------*/
 
+/*-------------------------------FUNCTION CONTENTS-------------------*/
+
 void AppMain(void)
 {
     while (1)
     {
-        PTQS_FetchData_Routine();
-        HAL_Delay(100);
+        AirQuality_RoutineService();
     }
 }
 
