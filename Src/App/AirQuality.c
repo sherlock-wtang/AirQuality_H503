@@ -68,5 +68,6 @@ void AirQuality_RoutineService(void)
 -------------------------------*/
 void AirQuality_USART_Tx(UART_HandleTypeDef huart, BYTE *pbyTxData)
 {
+
 }
 /*-------------------------------EOF---------------------------------*/

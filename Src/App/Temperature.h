@@ -1,12 +1,14 @@
 /*
-*@filename: AppMain.h
+*@filename: Temperature.h
 *@note:
 *
 */
+
+#ifndef __TEMPERATURE_H__
+#define __TEMPERATURE_H__
+
 /*-------------------------------INCLUDE FILES------------------------*/
-#include "__DriverMain.h"
-#include "AirQuality.h"
-#include "Temperature.h"
+
 /*-------------------------------DEFINITION---------------------------*/
 
 /*-------------------------------GLOBAL VARIABLES---------------------*/
@@ -14,10 +16,5 @@
 /*-------------------------------GLOBAl PROTOTYPE---------------------*/
 
 
-#ifndef __APPMAIN_H__
-#define __APPMAIN_H__
-
-extern void AppMain(void);
-
-#endif /*__APPMAIN_H__*/
+#endif /*__TEMPERATURE_H__*/
 /*-------------------------------EOF---------------------------------*/

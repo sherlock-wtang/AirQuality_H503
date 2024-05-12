@@ -22,9 +22,12 @@
 
 void AppMain(void)
 {
+    DHT_Startup();
+
     while (1)
     {
-        AirQuality_RoutineService();
+         AirQuality_RoutineService();
+         Temperature_RoutineService();
     }
 }
 

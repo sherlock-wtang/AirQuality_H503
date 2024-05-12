@@ -1,23 +1,23 @@
 /*
-*@filename: AppMain.h
-*@note:
-*
-*/
+ *@filename: DTH20.h
+ *@description:
+ *@note:
+ *
+ */
+#ifndef __DTH20_H__
+#define __DTH20_H__
 /*-------------------------------INCLUDE FILES------------------------*/
-#include "__DriverMain.h"
-#include "AirQuality.h"
-#include "Temperature.h"
+#include "common.h"
+
 /*-------------------------------DEFINITION---------------------------*/
 
 /*-------------------------------GLOBAL VARIABLES---------------------*/
 
 /*-------------------------------GLOBAl PROTOTYPE---------------------*/
+extern void DTH20_FetchData_Routine(BYTE *pbyData);
+extern void DHT_Startup(void);
 
 
-#ifndef __APPMAIN_H__
-#define __APPMAIN_H__
+#endif /*__DTH20_H__*/
 
-extern void AppMain(void);
-
-#endif /*__APPMAIN_H__*/
 /*-------------------------------EOF---------------------------------*/
