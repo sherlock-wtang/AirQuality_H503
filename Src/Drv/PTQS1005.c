@@ -1,9 +1,9 @@
-/*
+/**
  *@filename: PTQS1005.c
  *@description:
  *@note:
  *
- */
+ **/
 
 /*-------------------------------INCLUDE FILES------------------------*/
 #include "__DriverMain.h"
@@ -11,8 +11,7 @@
 /*-------------------------------DEFINITION---------------------------*/
 #define COM_MODE_USART (TRUE) /* TRUE = USART, FALSE = I2C */
 #define UART_PORT (&huart1)
-#define COM_TIMEOUT (1000)
-
+#define COM_TIMEOUT (100)
 
 /*-------------------------------GLOBAL VARIABLES---------------------*/
 

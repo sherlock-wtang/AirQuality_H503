@@ -1,9 +1,9 @@
-/*
+/**
 *@filename: WT001.h
 *@description: 
 *@note:
 *
-*/
+**/
 
 /*-------------------------------INCLUDE FILES------------------------*/
 #include "common.h"

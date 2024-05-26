@@ -1,9 +1,9 @@
-/*
+/**
  *@filename: PTQS1005.h
  *@description:
  *@note:
  *
- */
+ **/
 #ifndef __PTQS1005_H__
 #define __PTQS1005_H__
 /*-------------------------------INCLUDE FILES------------------------*/

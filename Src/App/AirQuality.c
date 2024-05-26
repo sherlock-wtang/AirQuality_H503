@@ -6,12 +6,15 @@
  */
 
 /*-------------------------------INCLUDE FILES------------------------*/
-#include "AppMain.h"
+#include "common.h"
+#include "__DriverMain.h"
+#include "task.h"
 
 /*-------------------------------DEFINITION---------------------------*/
 #define MAX_PAST_DATA (5)
 
 /*-------------------------------GLOBAL VARIABLES---------------------*/
+TaskHandle_t* taskH_AirQualityRoutineTask;
 
 /*-------------------------------LOCAL VARIABLES----------------------*/
 
@@ -25,19 +28,21 @@ static BYTE s_byCurrentDataSeq = 0;
 
 /*-------------------------------GLOBAl PROTOTYPE---------------------*/
 void AirQuality_USART_Tx(UART_HandleTypeDef huart, BYTE *pbyTxData);
-void AirQuality_RoutineService(void);
+void AirQuality_RoutineTask_Startup(void);
+void AirQuality_RoutineTask(void);
+void AirQuality_RoutineTask_Body(void);
 
 /*-------------------------------LOCAL PROTOTYPE---------------------*/
 
 /*-------------------------------FUNCTION CONTENTS-------------------*/
-
-/*--------------------------------
-@Function:
-@Description:
-@Return Value:
-@Note:
--------------------------------*/
-void AirQuality_RoutineService(void)
+/*******************************
+ @name   : AirQuality_RoutineTask_Body
+ @brief  : AirQuality Fetch Data Routine
+ @param  :
+ @return :
+ @note   : When RTOS is not used, Call this function directly
+*******************************/
+void AirQuality_RoutineTask_Body(void)
 {
     PTQS_FetchData_Routine(s_byRawData_STD);
     /*PM2.5 ug/m3*/
@@ -60,12 +65,42 @@ void AirQuality_RoutineService(void)
     }
 }
 
-/*--------------------------------
-@Function:
-@Description:
-@Return Value:
-@Note:
--------------------------------*/
+/*******************************
+ @name   :
+ @brief  :
+ @param  :
+ @return :
+ @note   :
+*******************************/
+void AirQuality_RoutineTask(void)
+{
+    while (1)
+    {
+        AirQuality_RoutineTask_Body();
+        vTaskDelay(pdMS_TO_TICKS(50));
+    }
+}
+
+/*******************************
+ @name   :
+ @brief  :
+ @param  :
+ @return :
+ @note   :
+*******************************/
+void AirQuality_RoutineTask_Startup(void)
+{
+    xTaskCreate((void *)AirQuality_RoutineTask, "AQ_R", STANDARD_TASK_STACK, NULL, osPriorityLow, taskH_AirQualityRoutineTask);
+    return;
+}
+
+/*******************************
+ @name   :
+ @brief  :
+ @param  :
+ @return :
+ @note   :
+*******************************/
 void AirQuality_USART_Tx(UART_HandleTypeDef huart, BYTE *pbyTxData)
 {
 

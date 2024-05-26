@@ -1,18 +1,20 @@
-/*
+/**
  *@filename: AirQuality.c
  *@description:
  *@note:
  *
- */
+ **/
 
 /*-------------------------------INCLUDE FILES------------------------*/
 #include "AppMain.h"
+#include "__DriverMain.h"
+#include "task.h"
 
 /*-------------------------------DEFINITION---------------------------*/
 #define MAX_PAST_DATA (5)
 
 /*-------------------------------GLOBAL VARIABLES---------------------*/
-
+TaskHandle_t* taskH_Temperature;
 /*-------------------------------LOCAL VARIABLES----------------------*/
 
 static FLOAT s_fTemperatureData[MAX_PAST_DATA][2];
@@ -21,17 +23,20 @@ static BYTE s_byCurrentDataSeq = 0;
 
 /*-------------------------------GLOBAl PROTOTYPE---------------------*/
 void Temperature_RoutineService(void);
+void Temperature_RoutineTask_Startup(void);
+void Temperature_RoutineTask_Body(void);
 
 /*-------------------------------LOCAL PROTOTYPE---------------------*/
 
 /*-------------------------------FUNCTION CONTENTS-------------------*/
 
-/*--------------------------------
-@Function:
-@Description:
-@Return Value:
-@Note:
--------------------------------*/
+/*******************************
+ @name   :
+ @brief  :
+ @param  :
+ @return :
+ @note   :
+*******************************/
 void Temperature_RoutineService(void)
 {
     DHT_FetchData_Routine(s_byRawData_DHT20);
@@ -50,12 +55,42 @@ void Temperature_RoutineService(void)
     return;
 }
 
-/*--------------------------------
-@Function:
-@Description:
-@Return Value:
-@Note:
--------------------------------*/
+/*******************************
+ @name   :
+ @brief  :
+ @param  :
+ @return :
+ @note   :
+*******************************/
+void Temperature_RoutineTask_Body(void)
+{
+    while(1)
+    {
+        Temperature_RoutineService();
+        vTaskDelay(pdMS_TO_TICKS(45));
+    }
+}
+
+/*******************************
+ @name   :
+ @brief  :
+ @param  :
+ @return :
+ @note   :
+*******************************/
+void Temperature_RoutineTask_Startup(void)
+{
+    xTaskCreate((void *)Temperature_RoutineTask_Body, "Temperature", STANDARD_TASK_STACK, NULL, osPriorityLow, taskH_Temperature);
+    return;
+}
+
+/*******************************
+ @name   :
+ @brief  :
+ @param  :
+ @return :
+ @note   :
+*******************************/
 void Temperature_USART_Tx(UART_HandleTypeDef huart, BYTE *pbyTxData)
 {
 }

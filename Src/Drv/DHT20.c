@@ -1,9 +1,9 @@
-/*
+/**
  *@filename: DTH20.c
  *@description:
  *@note:
  *
- */
+ **/
 
 /*-------------------------------INCLUDE FILES------------------------*/
 #include "__DriverMain.h"

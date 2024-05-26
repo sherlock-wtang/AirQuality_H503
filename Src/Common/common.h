@@ -1,13 +1,19 @@
-/*
+/**
 *@filename: common.h
 *@description: 
 *@note:
 *
-*/
+**/
+
+#ifndef __COMMON_H__
+#define __COMMON_H__
 
 /*-------------------------------INCLUDE FILES------------------------*/
 #include "Error.h"
+#include "compile_define.h"
 #include "main.h"
+#include "FreeRTOS.h"
+#include "cmsis_os2.h"
 
 /*-------------------------------DEFINITION---------------------------*/
 #define BYTE uint8_t
@@ -38,4 +44,5 @@
 
 /*-------------------------------GLOBAl PROTOTYPE---------------------*/
 
+#endif /*__COMMON_H__*/
 /*-------------------------------EOF---------------------------------*/

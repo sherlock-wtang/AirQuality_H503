@@ -1,9 +1,9 @@
-/*
+/**
  *@filename: DTH20.h
  *@description:
  *@note:
  *
- */
+ **/
 #ifndef __DTH20_H__
 #define __DTH20_H__
 /*-------------------------------INCLUDE FILES------------------------*/
